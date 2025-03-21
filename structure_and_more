@@ -1,0 +1,58 @@
+# Архитектура веб-чата на PHP (WordPress) и React с WebSocket
+
+web-chat-ai/
+├── backend/                 # Серверная часть (PHP, WordPress, REST API, WebSocket)
+│   ├── api/                 # REST API эндпоинты
+│   │   ├── chat.php         # API для чата
+│   │   ├── auth.php         # Авторизация и сессии
+│   │   ├── bitrix.php       # Интеграция с Bitrix24
+│   │   ├── queue.php        # Очередь сообщений
+│   ├── ws/                  # WebSocket сервер
+│   │   ├── server.php       # Основная логика WebSocket
+│   ├── db/                  # Работа с базой данных (PostgreSQL)
+│   │   ├── schema.sql       # Структура базы данных
+│   │   ├── queries.php      # SQL-запросы
+│   ├── .env.example         # Файл переменных окружения
+│   ├── config.php           # Конфигурация
+│   ├── index.php            # Точка входа (WordPress)
+├── frontend/                # Клиентская часть (React)
+│   ├── src/
+│   │   ├── components/      # UI-компоненты
+│   │   │   ├── ChatWindow.jsx  # Основной компонент чата
+│   │   │   ├── Message.jsx      # Сообщение
+│   │   │   ├── InputBox.jsx     # Поле ввода
+│   │   ├── pages/           # Страницы
+│   │   │   ├── ChatPage.jsx  # Страница чата
+│   │   ├── services/        # API-клиент
+│   │   │   ├── api.js       # Работа с REST API
+│   │   │   ├── websocket.js # WebSocket клиент
+│   │   ├── App.js           # Основной компонент
+│   │   ├── index.js         # Точка входа
+│   ├── public/
+│   ├── package.json         # Зависимости
+│   ├── vite.config.js       # Конфигурация Vite (или Webpack)
+├── docker/                  # Docker для деплоя
+│   ├── Dockerfile
+│   ├── docker-compose.yml
+├── docs/                    # Документация
+│   ├── README.md            # Инструкция по установке и настройке
+│   ├── API.md               # Описание API
+│   ├── DEPLOY.md            # Деплой проекта
+├── .gitignore
+├── README.md
+
+
+
+"""Настройка бэкенда:"""
+cd backend
+composer install
+Создайте файл .env и укажите параметры БД и API.
+
+"""Настройка фронтенда:"""
+cd frontend
+npm install
+Создайте .env.local и настройте API-адреса.
+
+"""Запуск проекта:"""
+docker-compose up --build -d
+Откройте браузер и перейдите по адресу http://localhost.
